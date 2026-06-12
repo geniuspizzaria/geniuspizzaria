@@ -60,16 +60,26 @@
       targetY = Math.max(-1, Math.min(1, (ev.beta - 45) / 28));
     }, { passive: true });
 
+    // pré-calcula as profundidades uma única vez
+    const items = Array.from(layers, (el) => ({
+      el,
+      depth: parseFloat(el.dataset.depth || "0.3"),
+    }));
+
     const AMPLITUDE = 26; // px máximos de deslocamento
     (function tick() {
-      curX += (targetX - curX) * 0.055;
-      curY += (targetY - curY) * 0.055;
-      layers.forEach((el) => {
-        const depth = parseFloat(el.dataset.depth || "0.3");
-        el.style.transform =
-          "translate3d(" + (curX * AMPLITUDE * depth).toFixed(2) + "px," +
-          (curY * AMPLITUDE * depth).toFixed(2) + "px,0)";
-      });
+      const dx = targetX - curX;
+      const dy = targetY - curY;
+      // só escreve no DOM quando há movimento perceptível
+      if (Math.abs(dx) + Math.abs(dy) > 0.0008) {
+        curX += dx * 0.055;
+        curY += dy * 0.055;
+        for (const { el, depth } of items) {
+          el.style.transform =
+            "translate3d(" + (curX * AMPLITUDE * depth).toFixed(2) + "px," +
+            (curY * AMPLITUDE * depth).toFixed(2) + "px,0)";
+        }
+      }
       requestAnimationFrame(tick);
     })();
   }

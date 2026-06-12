@@ -12,6 +12,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lilita+One&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/island.webp" imagesrcset="assets/island-sm.webp 900w, assets/island.webp 1500w" imagesizes="(max-width: 640px) 88vw, 46vh" fetchpriority="high">
+  <meta name="theme-color" content="#46551f">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,11 +25,36 @@
     <div class="vignette"></div>
     <div class="stars" id="stars"></div>
     <div class="embers" id="embers"></div>
-    <!-- nuvens cartoon dos cantos -->
+    <!-- nuvens cartoon dos cantos (fundo difuso) -->
     <div class="cloud-corner cloud-corner--bl p" data-depth="-.35"></div>
     <div class="cloud-corner cloud-corner--br p" data-depth="-.3"></div>
     <div class="cloud-corner cloud-corner--tl p" data-depth="-.25"></div>
     <div class="cloud-corner cloud-corner--tr p" data-depth="-.28"></div>
+    <!-- bancos de nuvens cartoon definidos, como na caixa -->
+    <div class="cloudbank cb--bl p" data-depth="-.18">
+      <svg class="cb__svg" viewBox="0 0 520 210" preserveAspectRatio="none" aria-hidden="true">
+        <path class="cb__back" d="M0,210 L0,96 a52,52 0 0 1 96,-18 a62,62 0 0 1 104,-22 a66,66 0 0 1 118,8 a56,56 0 0 1 100,-12 a48,48 0 0 1 90,26 L520,210 Z"/>
+        <path class="cb__front" d="M0,210 L0,140 a44,44 0 0 1 82,-8 a54,54 0 0 1 96,-16 a58,58 0 0 1 104,6 a50,50 0 0 1 92,-8 a42,42 0 0 1 78,18 L520,210 Z"/>
+      </svg>
+    </div>
+    <div class="cloudbank cb--br p" data-depth="-.22">
+      <svg class="cb__svg cb__svg--late" viewBox="0 0 520 210" preserveAspectRatio="none" aria-hidden="true">
+        <path class="cb__back" d="M0,210 L0,96 a52,52 0 0 1 96,-18 a62,62 0 0 1 104,-22 a66,66 0 0 1 118,8 a56,56 0 0 1 100,-12 a48,48 0 0 1 90,26 L520,210 Z"/>
+        <path class="cb__front" d="M0,210 L0,140 a44,44 0 0 1 82,-8 a54,54 0 0 1 96,-16 a58,58 0 0 1 104,6 a50,50 0 0 1 92,-8 a42,42 0 0 1 78,18 L520,210 Z"/>
+      </svg>
+    </div>
+    <div class="cloudbank cb--tl p" data-depth="-.15">
+      <svg class="cb__svg cb__svg--late" viewBox="0 0 520 210" preserveAspectRatio="none" aria-hidden="true">
+        <path class="cb__back" d="M0,210 L0,96 a52,52 0 0 1 96,-18 a62,62 0 0 1 104,-22 a66,66 0 0 1 118,8 a56,56 0 0 1 100,-12 a48,48 0 0 1 90,26 L520,210 Z"/>
+        <path class="cb__front" d="M0,210 L0,140 a44,44 0 0 1 82,-8 a54,54 0 0 1 96,-16 a58,58 0 0 1 104,6 a50,50 0 0 1 92,-8 a42,42 0 0 1 78,18 L520,210 Z"/>
+      </svg>
+    </div>
+    <div class="cloudbank cb--tr p" data-depth="-.2">
+      <svg class="cb__svg" viewBox="0 0 520 210" preserveAspectRatio="none" aria-hidden="true">
+        <path class="cb__back" d="M0,210 L0,96 a52,52 0 0 1 96,-18 a62,62 0 0 1 104,-22 a66,66 0 0 1 118,8 a56,56 0 0 1 100,-12 a48,48 0 0 1 90,26 L520,210 Z"/>
+        <path class="cb__front" d="M0,210 L0,140 a44,44 0 0 1 82,-8 a54,54 0 0 1 96,-16 a58,58 0 0 1 104,6 a50,50 0 0 1 92,-8 a42,42 0 0 1 78,18 L520,210 Z"/>
+      </svg>
+    </div>
     <div class="grain"></div>
   </div>
 
@@ -122,6 +149,6 @@
     </footer>
   </main>
 
-  <script src="main.js"></script>
+  <script src="main.js" defer></script>
 </body>
 </html>
