@@ -20,7 +20,7 @@
   --tinta: #2b1408;
 
   --fonte-display: "Lilita One", "Baloo 2", cursive;
-  --fonte-logo: "Archivo Black", sans-serif;
+  --fonte-logo: "Montserrat", sans-serif;
   --fonte-corpo: "Baloo 2", sans-serif;
 
   /* parallax (atualizado via JS, -1..1) */
@@ -52,56 +52,12 @@ img { user-select: none; -webkit-user-drag: none; }
   z-index: 0;
 }
 
-/* redemoinho gigante girando devagar */
-.swirl {
+/* a arte de fundo da própria caixa, extraída do PDF original */
+.bg-art {
   position: absolute;
-  left: 50%; top: 50%;
-  width: 175vmax; height: 175vmax;
-  margin: -87.5vmax 0 0 -87.5vmax;
-  border-radius: 50%;
-  background:
-    radial-gradient(closest-side at 38% 30%, rgba(109, 134, 48, .9), transparent 62%),
-    radial-gradient(closest-side at 72% 24%, rgba(196, 58, 34, .85), transparent 58%),
-    radial-gradient(closest-side at 22% 68%, rgba(240, 110, 40, .65), transparent 55%),
-    radial-gradient(closest-side at 76% 74%, rgba(150, 38, 24, .85), transparent 60%),
-    radial-gradient(closest-side at 50% 50%, rgba(250, 158, 44, .6), transparent 70%),
-    conic-gradient(from 0deg,
-      #50621f 0deg, #9a4a16 60deg, #c43a22 120deg, #66782a 180deg,
-      #b03020 240deg, #ef7224 300deg, #50621f 360deg);
-  filter: blur(26px) saturate(1.18);
-  animation: girar 140s linear infinite;
-}
-
-.swirl--2 {
-  width: 130vmax; height: 130vmax;
-  margin: -65vmax 0 0 -65vmax;
-  opacity: .65;
-  background:
-    radial-gradient(closest-side at 30% 40%, rgba(255, 190, 60, .6), transparent 55%),
-    radial-gradient(closest-side at 70% 60%, rgba(238, 70, 40, .5), transparent 50%),
-    conic-gradient(from 180deg,
-      transparent 0deg, rgba(255, 176, 52, .6) 80deg, transparent 160deg,
-      rgba(122, 146, 52, .6) 240deg, transparent 360deg);
-  filter: blur(34px);
-  animation: girar 90s linear infinite reverse;
-}
-
-@keyframes girar { to { transform: rotate(360deg); } }
-
-/* escurece as bordas, foca o centro */
-.vignette {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 75% 62% at 50% 46%, transparent 40%, rgba(82, 38, 14, .3) 78%, rgba(54, 32, 12, .55) 100%);
-}
-
-/* granulado sutil, textura de impressão */
-.grain {
-  position: absolute; inset: 0;
-  opacity: .05;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay;
-  pointer-events: none;
+  inset: -2.5%;
+  background: url("assets/bg.webp") center / cover no-repeat;
+  background-color: #b0501e;
 }
 
 /* estrelas de 4 pontas (criadas via JS) */
@@ -139,93 +95,7 @@ img { user-select: none; -webkit-user-drag: none; }
   100% { transform: translate(var(--drift, 30px), -108vh) scale(.2); opacity: 0; }
 }
 
-/* nuvens cartoon dos cantos (bolhas empilhadas) */
-.cloud-corner {
-  position: absolute;
-  width: 46vmax; height: 46vmax;
-  border-radius: 50%;
-  filter: blur(2px);
-  animation: respirar 14s ease-in-out infinite;
-}
-.cloud-corner::before, .cloud-corner::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  background: inherit;
-}
-.cloud-corner::before { width: 62%; height: 62%; top: -26%; left: 16%; }
-.cloud-corner::after  { width: 46%; height: 46%; top: -10%; right: -14%; }
-
-.cloud-corner--bl { left: -16vmax; bottom: -30vmax; background: #a8331f; animation-delay: -3s; }
-.cloud-corner--br { right: -17vmax; bottom: -31vmax; background: #8c2517; animation-delay: -8s; }
-.cloud-corner--tl { left: -20vmax; top: -34vmax; background: #45601f; animation-delay: -5s; }
-.cloud-corner--tr { right: -19vmax; top: -35vmax; background: #3b541c; animation-delay: -11s; }
-
-@keyframes respirar {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50%      { transform: translateY(-1.6vmax) scale(1.035); }
-}
-
-/* bancos de nuvens cartoon definidos (como na arte da caixa) */
-.cloudbank {
-  position: absolute;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.cb__svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  animation: deriva 22s ease-in-out infinite;
-}
-.cb__svg--late { animation-delay: -11s; }
-
-@keyframes deriva {
-  0%, 100% { transform: translateX(0); }
-  50%      { transform: translateX(1.6vw); }
-}
-
-.cb__back  { fill: var(--nuvem-tras); }
-.cb__front { fill: var(--nuvem-frente); }
-
-/* embaixo: nuvens vermelhas como na caixa */
-.cb--bl {
-  --nuvem-tras: #872315;
-  --nuvem-frente: #a93620;
-  left: -6vw; bottom: -2px;
-  width: 62vw; height: 24vh;
-  min-width: 420px;
-}
-
-.cb--br {
-  --nuvem-tras: #7c1f12;
-  --nuvem-frente: #9e2f1c;
-  right: -8vw; bottom: -2px;
-  width: 66vw; height: 27vh;
-  min-width: 440px;
-}
-.cb--br .cb__svg { scale: -1 1; }
-
-/* em cima: nuvens/folhagem verdes penduradas, como na caixa */
-.cb--tl {
-  --nuvem-tras: #2e4416;
-  --nuvem-frente: #41601e;
-  left: -7vw; top: -2px;
-  width: 56vw; height: 19vh;
-  min-width: 380px;
-}
-.cb--tl .cb__svg { scale: 1 -1; }
-
-.cb--tr {
-  --nuvem-tras: #293d13;
-  --nuvem-frente: #3a571b;
-  right: -8vw; top: -2px;
-  width: 60vw; height: 21vh;
-  min-width: 400px;
-}
-.cb--tr .cb__svg { scale: -1 -1; }
+/* (nuvens agora fazem parte da arte real de fundo) */
 
 /* ============================================================
    CENA
@@ -251,62 +121,67 @@ img { user-select: none; -webkit-user-drag: none; }
 
 .logo__word {
   font-family: var(--fonte-logo);
+  font-weight: 800;
   font-size: clamp(44px, 8.5vmin, 84px);
-  letter-spacing: .02em;
+  letter-spacing: .01em;
   color: #fff;
   line-height: 1;
   display: inline-flex;
   align-items: center;
 }
 
-/* o "E" de bandeira italiana */
+/* o "E" de bandeira italiana (barras arredondadas, como na logo oficial) */
 .logo__flag-e {
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
-  gap: .09em;
-  width: .72em;
-  height: .78em;
-  margin: 0 .06em;
+  gap: .105em;
+  width: .8em;
+  height: .76em;
+  margin: 0 .07em;
 }
 .logo__flag-e i {
-  height: .18em;
-  border-radius: .09em;
+  height: .165em;
+  border-radius: .055em;
   animation: ondular-e 4s ease-in-out infinite;
 }
-.logo__flag-e i:nth-child(1) { background: var(--verde-selo); }
+.logo__flag-e i:nth-child(1) { background: #16a046; }
 .logo__flag-e i:nth-child(2) { background: #fff; animation-delay: .25s; }
-.logo__flag-e i:nth-child(3) { background: var(--vermelho); animation-delay: .5s; }
+.logo__flag-e i:nth-child(3) { background: #ee1c25; animation-delay: .5s; }
 
 @keyframes ondular-e {
   0%, 100% { transform: scaleX(1); }
-  50%      { transform: scaleX(.86); }
+  50%      { transform: scaleX(.88); }
 }
 
-/* fita tricolor */
+/* barra tricolor reta com pontas arredondadas */
 .logo__ribbon {
   display: flex;
-  width: min(74vw, 380px);
-  height: 7px;
-  margin: 8px auto 6px;
+  width: min(86vw, 470px);
+  height: 6px;
+  margin: 10px auto 8px;
   border-radius: 4px;
   overflow: hidden;
-  transform: skewX(-18deg);
 }
 .logo__ribbon i { flex: 1; }
-.logo__ribbon i:nth-child(1) { background: var(--verde-selo); }
+.logo__ribbon i:nth-child(1) { background: #16a046; }
 .logo__ribbon i:nth-child(2) { background: #fff; }
-.logo__ribbon i:nth-child(3) { background: var(--vermelho); }
+.logo__ribbon i:nth-child(3) { background: #ee1c25; }
 
 .logo__sub {
-  font-family: var(--fonte-corpo);
-  font-weight: 600;
-  font-size: clamp(13px, 2.2vmin, 19px);
-  letter-spacing: .58em;
-  text-indent: .58em;
+  font-family: var(--fonte-logo);
+  font-weight: 500;
+  font-size: clamp(13px, 2.2vmin, 20px);
+  letter-spacing: .5em;
+  text-indent: .5em;
   text-transform: uppercase;
-  color: var(--creme-suave);
-  opacity: .92;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, .92);
+  opacity: .95;
+}
+
+@supports not (-webkit-text-stroke: 1px white) {
+  .logo__sub { color: var(--creme-suave); }
 }
 
 /* ---------- PALCO ---------- */
@@ -335,8 +210,8 @@ img { user-select: none; -webkit-user-drag: none; }
 }
 
 @keyframes pulsar {
-  0%, 100% { opacity: .85; scale: 1; }
-  50%      { opacity: 1; scale: 1.06; }
+  0%, 100% { opacity: .45; scale: 1; }
+  50%      { opacity: .7; scale: 1.05; }
 }
 
 /* ---------- ILHA ---------- */
@@ -720,10 +595,7 @@ img { user-select: none; -webkit-user-drag: none; }
   .flyer--sleep { left: 1vw; top: 110px; width: clamp(80px, 21vw, 115px); }
   .flyer--slice { right: 2vw; top: 46%; width: clamp(58px, 15vw, 85px); }
 
-  .cb--bl { width: 78vw; height: 13vh; min-width: 250px; }
-  .cb--br { width: 84vw; height: 15vh; min-width: 270px; }
-  .cb--tl { width: 70vw; height: 9vh; min-width: 220px; }
-  .cb--tr { width: 76vw; height: 10vh; min-width: 240px; }
+  .bg-art { background-image: url("assets/bg-sm.webp"); }
 
   .cta__buttons { flex-direction: column; align-items: stretch; max-width: 340px; margin-inline: auto; }
   .btn { justify-content: center; }
