@@ -1,0 +1,12 @@
+# ambiente python (extração de assets)
+.venv/
+
+# vínculo local do vercel
+site/.vercel/
+.vercel/
+
+# arquivos intermediários regeneráveis
+art_full.png
+*_raw.png
+
+.DS_Store
