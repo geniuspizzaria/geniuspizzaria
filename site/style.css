@@ -60,29 +60,29 @@ img { user-select: none; -webkit-user-drag: none; }
   margin: -87.5vmax 0 0 -87.5vmax;
   border-radius: 50%;
   background:
-    radial-gradient(closest-side at 38% 30%, rgba(70, 85, 31, .85), transparent 62%),
-    radial-gradient(closest-side at 72% 24%, rgba(142, 32, 23, .8), transparent 58%),
-    radial-gradient(closest-side at 22% 68%, rgba(227, 84, 29, .55), transparent 55%),
-    radial-gradient(closest-side at 76% 74%, rgba(93, 20, 15, .9), transparent 60%),
-    radial-gradient(closest-side at 50% 50%, rgba(245, 130, 32, .5), transparent 70%),
+    radial-gradient(closest-side at 38% 30%, rgba(109, 134, 48, .9), transparent 62%),
+    radial-gradient(closest-side at 72% 24%, rgba(196, 58, 34, .85), transparent 58%),
+    radial-gradient(closest-side at 22% 68%, rgba(240, 110, 40, .65), transparent 55%),
+    radial-gradient(closest-side at 76% 74%, rgba(150, 38, 24, .85), transparent 60%),
+    radial-gradient(closest-side at 50% 50%, rgba(250, 158, 44, .6), transparent 70%),
     conic-gradient(from 0deg,
-      #2b3a17 0deg, #6e3013 60deg, #a3261d 120deg, #46551f 180deg,
-      #8e2017 240deg, #e8541d 300deg, #2b3a17 360deg);
-  filter: blur(28px) saturate(1.05);
+      #50621f 0deg, #9a4a16 60deg, #c43a22 120deg, #66782a 180deg,
+      #b03020 240deg, #ef7224 300deg, #50621f 360deg);
+  filter: blur(26px) saturate(1.18);
   animation: girar 140s linear infinite;
 }
 
 .swirl--2 {
   width: 130vmax; height: 130vmax;
   margin: -65vmax 0 0 -65vmax;
-  opacity: .55;
+  opacity: .65;
   background:
-    radial-gradient(closest-side at 30% 40%, rgba(245, 166, 35, .5), transparent 55%),
-    radial-gradient(closest-side at 70% 60%, rgba(227, 33, 26, .45), transparent 50%),
+    radial-gradient(closest-side at 30% 40%, rgba(255, 190, 60, .6), transparent 55%),
+    radial-gradient(closest-side at 70% 60%, rgba(238, 70, 40, .5), transparent 50%),
     conic-gradient(from 180deg,
-      transparent 0deg, rgba(245, 130, 32, .5) 80deg, transparent 160deg,
-      rgba(70, 85, 31, .6) 240deg, transparent 360deg);
-  filter: blur(36px);
+      transparent 0deg, rgba(255, 176, 52, .6) 80deg, transparent 160deg,
+      rgba(122, 146, 52, .6) 240deg, transparent 360deg);
+  filter: blur(34px);
   animation: girar 90s linear infinite reverse;
 }
 
@@ -92,7 +92,7 @@ img { user-select: none; -webkit-user-drag: none; }
 .vignette {
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 70% 58% at 50% 46%, transparent 30%, rgba(27, 36, 15, .55) 78%, rgba(20, 26, 11, .85) 100%);
+    radial-gradient(ellipse 75% 62% at 50% 46%, transparent 40%, rgba(82, 38, 14, .3) 78%, rgba(54, 32, 12, .55) 100%);
 }
 
 /* granulado sutil, textura de impressão */
@@ -156,10 +156,10 @@ img { user-select: none; -webkit-user-drag: none; }
 .cloud-corner::before { width: 62%; height: 62%; top: -26%; left: 16%; }
 .cloud-corner::after  { width: 46%; height: 46%; top: -10%; right: -14%; }
 
-.cloud-corner--bl { left: -16vmax; bottom: -30vmax; background: #6e1d13; animation-delay: -3s; }
-.cloud-corner--br { right: -17vmax; bottom: -31vmax; background: #531209; animation-delay: -8s; }
-.cloud-corner--tl { left: -20vmax; top: -34vmax; background: #2e3d18; animation-delay: -5s; }
-.cloud-corner--tr { right: -19vmax; top: -35vmax; background: #243213; animation-delay: -11s; }
+.cloud-corner--bl { left: -16vmax; bottom: -30vmax; background: #a8331f; animation-delay: -3s; }
+.cloud-corner--br { right: -17vmax; bottom: -31vmax; background: #8c2517; animation-delay: -8s; }
+.cloud-corner--tl { left: -20vmax; top: -34vmax; background: #45601f; animation-delay: -5s; }
+.cloud-corner--tr { right: -19vmax; top: -35vmax; background: #3b541c; animation-delay: -11s; }
 
 @keyframes respirar {
   0%, 100% { transform: translateY(0) scale(1); }
@@ -391,6 +391,8 @@ img { user-select: none; -webkit-user-drag: none; }
 .puff--3 { width: clamp(46px, 6vmin, 70px);  height: clamp(15px, 2vmin, 24px); left: 22%; top: 16%; animation-delay: -7s; }
 
 /* ---------- SELOS ---------- */
+.badges { display: contents; }
+
 .badge {
   position: absolute;
   z-index: 6;
@@ -414,21 +416,21 @@ img { user-select: none; -webkit-user-drag: none; }
 }
 
 .badge--green {
-  left: clamp(8px, 7vw, 12vw);
-  top: 22%;
+  left: clamp(8px, 8vw, 14vw);
+  top: 24%;
   background: linear-gradient(160deg, var(--verde-selo), var(--verde-selo-esc));
-  padding: clamp(12px, 2vmin, 22px) clamp(16px, 2.6vmin, 30px) clamp(20px, 3vmin, 32px);
+  padding: clamp(10px, 1.6vmin, 18px) clamp(14px, 2.2vmin, 26px) clamp(16px, 2.4vmin, 26px);
   border-radius: 6px;
 }
 
 .badge--green__top {
-  font-size: clamp(26px, 4.6vmin, 48px);
+  font-size: clamp(20px, 3.6vmin, 38px);
   line-height: 1;
   text-shadow: 0 3px 0 rgba(0, 0, 0, .25);
 }
 
 .badge--green__mid {
-  font-size: clamp(17px, 3vmin, 31px);
+  font-size: clamp(13px, 2.4vmin, 25px);
   line-height: 1.15;
   text-shadow: 0 2px 0 rgba(0, 0, 0, .25);
 }
@@ -436,48 +438,48 @@ img { user-select: none; -webkit-user-drag: none; }
 .badge--green__tag {
   position: absolute;
   left: 50%;
-  bottom: clamp(-14px, -1.6vmin, -10px);
+  bottom: clamp(-12px, -1.4vmin, -9px);
   transform: translateX(-50%) rotate(-2deg);
   white-space: nowrap;
   background: var(--amarelo-estrela);
   color: var(--vermelho);
-  font-size: clamp(12px, 1.9vmin, 19px);
+  font-size: clamp(10px, 1.6vmin, 16px);
   padding: .22em .8em .18em;
   border-radius: 4px;
   box-shadow: 0 4px 10px rgba(20, 10, 4, .35);
 }
 
 .badge--red {
-  right: clamp(8px, 7vw, 12vw);
-  top: 17%;
+  right: clamp(8px, 8vw, 14vw);
+  top: 19%;
   background: linear-gradient(160deg, var(--vermelho), #b81810);
-  padding: clamp(12px, 2vmin, 24px) clamp(16px, 2.8vmin, 34px);
+  padding: clamp(10px, 1.6vmin, 20px) clamp(14px, 2.4vmin, 28px);
   border-radius: 6px;
 }
 
 .badge--red__small {
   font-family: var(--fonte-corpo);
   font-weight: 700;
-  font-size: clamp(11px, 1.7vmin, 17px);
+  font-size: clamp(10px, 1.4vmin, 14px);
   letter-spacing: .04em;
   margin-bottom: .2em;
 }
 
 .badge--red__line1 {
-  font-size: clamp(20px, 3.4vmin, 35px);
+  font-size: clamp(15px, 2.7vmin, 28px);
   line-height: 1;
   text-shadow: 0 2px 0 rgba(0, 0, 0, .25);
 }
 
 .badge--red__line2 {
-  font-size: clamp(24px, 4.2vmin, 44px);
-  line-height: 1.05;
+  font-size: clamp(18px, 3.3vmin, 35px);
+  line-height: 1.2;
   color: var(--amarelo-estrela);
   text-shadow: 0 3px 0 rgba(0, 0, 0, .3);
 }
 
 .badge--red__line3 {
-  font-size: clamp(26px, 4.6vmin, 48px);
+  font-size: clamp(20px, 3.6vmin, 38px);
   line-height: 1.05;
   letter-spacing: .03em;
   text-shadow: 0 3px 0 rgba(0, 0, 0, .3);
@@ -627,13 +629,35 @@ img { user-select: none; -webkit-user-drag: none; }
    RESPONSIVO
    ============================================================ */
 @media (max-width: 720px) {
-  .island { width: min(94vw, 48vh); }
+  .island { width: min(88vw, 46vh); }
 
-  .badge--green { left: 3vw; top: 17%; }
-  .badge--red   { right: 3vw; top: 12%; }
+  /* no celular os selos viram uma fileira no topo do palco,
+     fora do desenho — nada de cobrir os geninhos */
+  .stage { padding-top: 96px; }
 
-  .flyer--sleep { left: 2vw; top: 2%; width: clamp(90px, 24vw, 130px); }
-  .flyer--slice { right: 3vw; top: 40%; width: clamp(64px, 17vw, 95px); }
+  .badges {
+    display: flex;
+    position: absolute;
+    top: 4px; left: 0; right: 0;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 14px;
+    z-index: 6;
+    pointer-events: none;
+  }
+  .badge { position: static; }
+  .badge--green { padding: 8px 14px 12px; }
+  .badge--red   { padding: 8px 14px; }
+  .badge--green__top  { font-size: 17px; }
+  .badge--green__mid  { font-size: 12px; }
+  .badge--green__tag  { font-size: 10px; bottom: -10px; }
+  .badge--red__small  { font-size: 9px; }
+  .badge--red__line1  { font-size: 13px; }
+  .badge--red__line2  { font-size: 15px; }
+  .badge--red__line3  { font-size: 17px; }
+
+  .flyer--sleep { left: 1vw; top: 110px; width: clamp(80px, 21vw, 115px); }
+  .flyer--slice { right: 2vw; top: 46%; width: clamp(58px, 15vw, 85px); }
 
   .cta__buttons { flex-direction: column; align-items: stretch; max-width: 340px; margin-inline: auto; }
   .btn { justify-content: center; }
