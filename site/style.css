@@ -219,7 +219,6 @@ img { user-select: none; -webkit-user-drag: none; }
   position: relative;
   z-index: 3;
   width: min(88vw, 48vh, 640px);
-  cursor: pointer;
 }
 
 .island img {
@@ -233,18 +232,6 @@ img { user-select: none; -webkit-user-drag: none; }
 @keyframes flutuar {
   0%, 100% { transform: translateY(-1.2%) rotate(-.5deg); }
   50%      { transform: translateY(1.4%) rotate(.5deg); }
-}
-
-/* pulo ao clicar */
-.island.boing img {
-  animation: boing .65s cubic-bezier(.28, 2.2, .45, .8);
-}
-
-@keyframes boing {
-  0%   { transform: scale(1, 1); }
-  30%  { transform: scale(1.05, .92) translateY(1.5%); }
-  60%  { transform: scale(.96, 1.06) translateY(-2.5%); }
-  100% { transform: scale(1, 1); }
 }
 
 /* ---------- VOADORES ---------- */
