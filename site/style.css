@@ -56,7 +56,7 @@ img { user-select: none; -webkit-user-drag: none; }
 .bg-art {
   position: absolute;
   inset: -2.5%;
-  background: url("assets/bg-v2.webp") center / cover no-repeat;
+  background: url("assets/bg-v3.webp") center / cover no-repeat;
   background-color: #b0501e;
 }
 
@@ -603,7 +603,7 @@ img { user-select: none; -webkit-user-drag: none; }
   .flyer--sleep { left: 1vw; top: 110px; width: clamp(80px, 21vw, 115px); }
   .flyer--slice { right: 2vw; top: 46%; width: clamp(58px, 15vw, 85px); }
 
-  .bg-art { background-image: url("assets/bg-sm-v2.webp"); }
+  .bg-art { background-image: url("assets/bg-sm-v3.webp"); }
 
   .cta__buttons { flex-direction: column; align-items: stretch; max-width: 340px; margin-inline: auto; }
   .btn { justify-content: center; }
