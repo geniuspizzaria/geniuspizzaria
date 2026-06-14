@@ -416,6 +416,20 @@ img { user-select: none; -webkit-user-drag: none; }
   padding: 8px 18px clamp(20px, 3.5vh, 36px);
 }
 
+/* véu suave para o texto saltar sobre o brilho claro */
+.cta::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -6%;
+  width: 150%;
+  height: 130%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse 60% 72% at 50% 60%, rgba(26, 14, 5, .58), rgba(26, 14, 5, .28) 55%, transparent 78%);
+  z-index: -1;
+  pointer-events: none;
+}
+
 .cta__rating {
   display: inline-flex;
   gap: 6px;
@@ -446,61 +460,87 @@ img { user-select: none; -webkit-user-drag: none; }
   font-size: clamp(15px, 2.4vmin, 23px);
   letter-spacing: .06em;
   text-transform: uppercase;
-  color: var(--creme);
-  text-shadow: 0 2px 8px rgba(20, 10, 4, .6);
-  margin-bottom: clamp(12px, 2vh, 20px);
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(20, 10, 4, .9), 0 2px 14px rgba(20, 10, 4, .7);
+  margin-bottom: clamp(14px, 2.2vh, 22px);
 }
 
 .cta__buttons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: clamp(10px, 1.8vh, 18px);
+  gap: 10px;
+  margin-bottom: clamp(12px, 2vh, 20px);
 }
 
+/* botões slim, modernos: vidro fosco com fino contorno e brilho superior */
 .btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  font-family: var(--fonte-corpo);
-  font-weight: 700;
-  font-size: clamp(14px, 2vmin, 17px);
+  font-family: var(--fonte-logo);
+  font-weight: 600;
+  font-size: clamp(12.5px, 1.65vmin, 15px);
+  letter-spacing: .015em;
   text-decoration: none;
-  padding: 13px 24px;
+  padding: 9px 19px 9px 16px;
   border-radius: 999px;
-  transition: transform .18s cubic-bezier(.34, 1.56, .64, 1), box-shadow .18s ease, background .18s ease;
-  box-shadow: 0 6px 20px rgba(20, 10, 4, .4);
-}
-
-.btn:hover { transform: translateY(-3px) scale(1.04); }
-.btn:active { transform: translateY(0) scale(.98); }
-
-.btn--wa {
-  background: linear-gradient(160deg, #2ebd54, var(--verde-selo-esc));
   color: #fff;
+  isolation: isolate;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, .22);
+  box-shadow:
+    0 4px 16px rgba(20, 10, 4, .32),
+    inset 0 1px 0 rgba(255, 255, 255, .28);
+  transition: transform .22s cubic-bezier(.34, 1.4, .64, 1), box-shadow .22s ease, border-color .22s ease;
 }
-.btn--wa:hover { box-shadow: 0 10px 28px rgba(22, 154, 62, .45); }
 
-.btn--tel {
-  background: rgba(255, 243, 217, .12);
-  color: var(--creme);
-  border: 2px solid rgba(255, 243, 217, .55);
-  backdrop-filter: blur(4px);
+/* leve preenchimento de cor por trás do vidro */
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: -1;
+  opacity: .9;
+  transition: opacity .22s ease;
 }
-.btn--tel:hover { background: rgba(255, 243, 217, .22); }
 
-.btn--ig {
-  background: linear-gradient(135deg, #f09433, #dc2743 60%, #bc1888);
-  color: #fff;
+/* ícone num disco translúcido sutil */
+.btn svg {
+  width: 17px;
+  height: 17px;
+  padding: 5px;
+  box-sizing: content-box;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .16);
 }
-.btn--ig:hover { box-shadow: 0 10px 28px rgba(220, 39, 67, .45); }
+
+.btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, .42);
+}
+.btn:hover::before { opacity: 1; }
+.btn:active { transform: translateY(0); }
+
+.btn--wa::before { background: linear-gradient(150deg, #1fb851, #128a3a); }
+.btn--wa:hover { box-shadow: 0 8px 24px rgba(20, 170, 70, .4), inset 0 1px 0 rgba(255,255,255,.3); }
+
+.btn--tel::before { background: linear-gradient(150deg, rgba(255,243,217,.16), rgba(255,243,217,.06)); }
+.btn--tel { border-color: rgba(255, 243, 217, .4); }
+.btn--tel:hover { box-shadow: 0 8px 24px rgba(20, 10, 4, .35), inset 0 1px 0 rgba(255,255,255,.3); }
+
+.btn--ig::before { background: linear-gradient(135deg, #f09433, #dc2743 55%, #bc1888); }
+.btn--ig:hover { box-shadow: 0 8px 24px rgba(220, 39, 100, .42), inset 0 1px 0 rgba(255,255,255,.3); }
 
 .cta__address {
   font-size: clamp(12px, 1.8vmin, 15px);
   font-weight: 600;
-  color: var(--creme-suave);
-  opacity: .85;
+  color: #fff;
+  opacity: .9;
+  text-shadow: 0 1px 6px rgba(20, 10, 4, .7);
 }
 
 .cta__thanks {
@@ -509,7 +549,8 @@ img { user-select: none; -webkit-user-drag: none; }
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--creme-suave);
-  opacity: .5;
+  opacity: .72;
+  text-shadow: 0 1px 5px rgba(20, 10, 4, .6);
   margin-top: 6px;
 }
 
