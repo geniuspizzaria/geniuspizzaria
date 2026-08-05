@@ -495,13 +495,13 @@ img { user-select: none; -webkit-user-drag: none; }
 }
 .btn--wa:hover { box-shadow: 0 6px 20px rgba(20, 180, 75, .5); }
 
-/* Telefone: secundário fantasma (hairline) */
-.btn--tel {
+/* Cardápio: secundário fantasma (hairline) */
+.btn--menu {
   background: rgba(255, 255, 255, .08);
   border-color: rgba(255, 255, 255, .35);
   color: var(--creme);
 }
-.btn--tel:hover { background: rgba(255, 255, 255, .16); border-color: rgba(255, 255, 255, .55); }
+.btn--menu:hover { background: rgba(255, 255, 255, .16); border-color: rgba(255, 255, 255, .55); }
 
 /* Instagram: gradiente da marca */
 .btn--ig {
