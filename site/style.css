@@ -56,7 +56,7 @@ img { user-select: none; -webkit-user-drag: none; }
 .bg-art {
   position: absolute;
   inset: -2.5%;
-  background: url("assets/bg-v3.webp") center / cover no-repeat;
+  background: url("assets/bg-v4.jpg") center / cover no-repeat;
   background-color: #b0501e;
 }
 
@@ -479,6 +479,7 @@ img { user-select: none; -webkit-user-drag: none; }
   border-radius: 999px;
   color: #fff;
   border: 1px solid transparent;
+  background-clip: padding-box;
   transition: transform .2s cubic-bezier(.34, 1.4, .64, 1), box-shadow .2s ease, background .2s ease, border-color .2s ease;
 }
 
@@ -495,13 +496,14 @@ img { user-select: none; -webkit-user-drag: none; }
 }
 .btn--wa:hover { box-shadow: 0 6px 20px rgba(20, 180, 75, .5); }
 
-/* Cardápio: secundário fantasma (hairline) */
+/* Cardápio: cor sólida para contraste no novo fundo */
 .btn--menu {
-  background: rgba(255, 255, 255, .08);
-  border-color: rgba(255, 255, 255, .35);
+  background: var(--vermelho);
+  border-color: var(--vermelho);
   color: var(--creme);
+  box-shadow: 0 3px 14px rgba(227, 33, 26, .35);
 }
-.btn--menu:hover { background: rgba(255, 255, 255, .16); border-color: rgba(255, 255, 255, .55); }
+.btn--menu:hover { background: var(--vermelho-esc); border-color: var(--vermelho-esc); box-shadow: 0 6px 20px rgba(227, 33, 26, .5); }
 
 /* Instagram: gradiente da marca */
 .btn--ig {
@@ -603,7 +605,7 @@ img { user-select: none; -webkit-user-drag: none; }
   .flyer--sleep { left: 1vw; top: 110px; width: clamp(80px, 21vw, 115px); }
   .flyer--slice { right: 2vw; top: 46%; width: clamp(58px, 15vw, 85px); }
 
-  .bg-art { background-image: url("assets/bg-sm-v3.webp"); }
+  .bg-art { background-image: url("assets/bg-v4.jpg"); }
 
   .cta__buttons { flex-direction: column; align-items: stretch; max-width: 340px; margin-inline: auto; }
   .btn { justify-content: center; }
