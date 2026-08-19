@@ -6,9 +6,9 @@ Landing page animada da **Genius Pizzaria Delivery** (Cidade Tiradentes — SP),
 
 ## Estrutura
 
-- `site/` — o site (HTML/CSS/JS estático, sem framework). É a raiz de deploy na Vercel.
+- `index.html`, `style.css`, `main.js`, `assets/`, `vercel.json` — o site (HTML/CSS/JS estático, sem framework), na raiz do repositório.
 - `Genius Pizzaria.pdf` — arte original da caixa, fonte de todos os recortes.
-- `cut_*.png` — recortes com fundo transparente extraídos do PDF (ilha, geninhos voadores, fatia). Os WebP otimizados usados pelo site estão em `site/assets/`.
+- `cut_*.png` — recortes com fundo transparente extraídos do PDF (ilha, geninhos voadores, fatia). Os WebP otimizados usados pelo site estão em `assets/`.
 
 ## Como os assets foram extraídos
 
@@ -16,7 +16,7 @@ PDF renderizado em alta resolução com PyMuPDF, elementos recortados e fundo re
 
 ## Deploy
 
-Conectado ao projeto **genius** na Vercel (root directory: `site/`). Push na branch `main` publica em produção automaticamente.
+Conectado ao projeto **genius** na Vercel (root directory: raiz do repositório). Push na branch `main` publica em produção automaticamente.
 
 ## Contatos do negócio
 
